@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blocksembler &mdash; Blocksembler 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Blocksembler
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Blocksembler</a><ul>
+<li><a class="reference internal" href="#what-is-blocksembler">What is Blocksembler?</a></li>
+<li><a class="reference internal" href="#walkthrough">Walkthrough</a><ul>
+<li><a class="reference internal" href="#step-1-opening-blocksembler">Step 1: Opening <em>Blocksembler</em></a></li>
+<li><a class="reference internal" href="#step-2-starting-a-new-project">Step 2: Starting a New Project</a></li>
+<li><a class="reference internal" href="#step-3-dragging-instructions-into-the-workspace">Step 3: Dragging Instructions into the Workspace</a></li>
+<li><a class="reference internal" href="#step-4-terminating-the-program-with-halt-instructions">Step 4: Terminating the Program with <em>halt</em>-Instructions</a></li>
+<li><a class="reference internal" href="#step-5-switching-to-the-emulator">Step 5: Switching to the Emulator</a></li>
+<li><a class="reference internal" href="#step-6-running-the-program">Step 6: Running the Program</a></li>
+<li><a class="reference internal" href="#step-7-importing-exporting-your-solutions">Step 7: Importing/Exporting your Solutions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#labels-jump-instructions">Labels &amp; Jump instructions</a></li>
+<li><a class="reference internal" href="#directives">Directives</a></li>
+<li><a class="reference internal" href="#comments">Comments</a><ul>
+<li><a class="reference internal" href="#use-in-line-comments">Use in-line comments</a></li>
+<li><a class="reference internal" href="#use-the-multi-line-comment-block">Use the multi-line comment block</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Blocksembler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Blocksembler</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="blocksembler">
+<h1>Blocksembler<a class="headerlink" href="#blocksembler" title="Link to this heading"></a></h1>
+<section id="what-is-blocksembler">
+<span id="id1"></span><h2>What is Blocksembler?<a class="headerlink" href="#what-is-blocksembler" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://blocksembler.github.io">Blocksembler</a> is a block-based programming environment that allows to compose and excute <em>armlet</em> assembly code. The main difference to conventionel text-based code editors is that Blocksembler allows users to compose instructions via drag and drop similar to other block-based programming environments like <a class="reference external" href="https://scratch.mit.edu">Scratch</a> and <a class="reference external" href="https://makecode.microbit.org">MakeCode</a>. As depicted in the following picture, instructions are represented as visual blocks, hence the name:</p>
+<img alt="_images/move-instruction.png" class="align-center" src="_images/move-instruction.png" />
+<p>Most assembly instructions expect arguments that can be either specific registers, immediate values (e.g. decimal or hexadecimal values) or labels. These primitives are shaped similar to puzzle pieces and can be snapted into the instructions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Blocksembler automatically prevents invalid block connections. For example, in a move instruction, only register primitives are valid as the second argument. Attempting to snap a decimal value primitive into that slot will not work.</p>
+</div>
+</section>
+<section id="walkthrough">
+<h2>Walkthrough<a class="headerlink" href="#walkthrough" title="Link to this heading"></a></h2>
+<p>In this guide, we will implement a simple <em>armlet</em> program that stores two values in registers <code class="docutils literal notranslate"><span class="pre">$1</span></code> and <code class="docutils literal notranslate"><span class="pre">$2</span></code>, adds them, and stores the result in register <code class="docutils literal notranslate"><span class="pre">$3</span></code>. Finally, we will execute the program using the integrated <em>armlet</em> emulator.</p>
+<section id="step-1-opening-blocksembler">
+<h3>Step 1: Opening <em>Blocksembler</em><a class="headerlink" href="#step-1-opening-blocksembler" title="Link to this heading"></a></h3>
+<p>Open the browser and visit <a class="reference external" href="https://blocksembler.github.io">https://blocksembler.github.io</a> and click on <a class="reference internal" href="_images/button.png"><img alt="button" class="align-middle" src="_images/button.png" style="height: 40px;" /></a> which leads you to follwing page:</p>
+<img alt="_images/blocksembler-overview.png" class="align-center" src="_images/blocksembler-overview.png" />
+<p>The Blocksembler code editor consists of three parts:</p>
+<ol class="arabic">
+<li><p><strong>The Toolbox</strong>.</p>
+<p>All <em>armlet</em> assembly instructions are grouped in categories (e.g. System Instructions). You can browse through the instructions by clicking on the categories.</p>
+</li>
+<li><p><strong>The Workspace</strong></p>
+<p>The <em>Workspace</em> is the place were the assembly program is composed. You can drag instructions from the toolbox into this area or rearange your assembly program via drag and drop.</p>
+</li>
+<li><p><strong>The Assembly Code View</strong></p>
+<p>While crafting block-based assembly programms in the workspace, the <em>Assembly Code View</em> displays the according text-based assembly code.</p>
+</li>
+</ol>
+</section>
+<section id="step-2-starting-a-new-project">
+<h3>Step 2: Starting a New Project<a class="headerlink" href="#step-2-starting-a-new-project" title="Link to this heading"></a></h3>
+<p>To start a new project click on <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">New</span> <span class="pre">Project</span></code> in the top menu. This will remove any blocks from the <em>Workspace</em> and immediatly add a <em>Entrypoint</em>-block to your workspace.</p>
+<img alt="_images/new-project.png" class="align-center" src="_images/new-project.png" />
+<p>The <em>Entrypoint</em> block acts as the starting point of your program in Blocksembler. When the generated code is executed, the instructions connected to this block will be run first.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since every <em>armlet</em> program has a single distinct starting point (i.e., the instruction stored at address <code class="docutils literal notranslate"><span class="pre">0x0000</span></code>), Blocksembler ensures that you cannot add a second <em>Entrypoint</em> block.</p>
+</div>
+</section>
+<section id="step-3-dragging-instructions-into-the-workspace">
+<h3>Step 3: Dragging Instructions into the Workspace<a class="headerlink" href="#step-3-dragging-instructions-into-the-workspace" title="Link to this heading"></a></h3>
+<p>As a first step we are going to look for the <code class="docutils literal notranslate"><span class="pre">move</span></code>-instruction in the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Operations</span></code>-toolbox and drag it into the workspace. The first thing one might notice is, that the instruction we just dragged into the workspace looks a bit different than the move instruction shown before. Instead of the red primitive blocks we see transparent blocks filling the two slots:</p>
+<img alt="_images/shadow-blocks.png" class="align-center" src="_images/shadow-blocks.png" />
+<p>By default, newly added instructions include placeholder (“shadow”) blocks for their arguments. These placeholders are fully functional, but they’ll disappear the moment you replace them with a real primitive block. As we want to move a decimal value into a register we are going to fill the two slots with an decimal and register block as shown below:</p>
+<img alt="_images/mov-instruction-connected.png" class="align-center" src="_images/mov-instruction-connected.png" />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only blocks connected to the <em>Entrypoint</em> block or its successors are considered by the code generator. You can test this by disconnecting the <cite>move</cite> instruction from the <strong>Entrypoint</strong> block and observing the changes in the <em>Assembly Code View</em>.</p>
+</div>
+<p>Finally, we add another <code class="docutils literal notranslate"><span class="pre">mov</span></code>-instruction and a <code class="docutils literal notranslate"><span class="pre">add</span></code>-instruction (can be found in the <em>Arithmetic Instructions</em> toolbox) that we end up with a program like this:</p>
+<img alt="_images/final-program.png" class="align-center" src="_images/final-program.png" />
+</section>
+<section id="step-4-terminating-the-program-with-halt-instructions">
+<h3>Step 4: Terminating the Program with <em>halt</em>-Instructions<a class="headerlink" href="#step-4-terminating-the-program-with-halt-instructions" title="Link to this heading"></a></h3>
+<p>In <em>armlet</em> assembly, programs terminate when they encounter a corresponding <strong>halt</strong> instruction. You can find these instructions in the <strong>System Structure</strong> toolbox, labeled <strong>“terminate the program.”</strong> Drag a <strong>halt</strong> instruction into the workspace, then attach it below the previously added <strong>move</strong> instruction:</p>
+<img alt="_images/final-program-with-halt.png" class="align-center" src="_images/final-program-with-halt.png" />
+</section>
+<section id="step-5-switching-to-the-emulator">
+<h3>Step 5: Switching to the Emulator<a class="headerlink" href="#step-5-switching-to-the-emulator" title="Link to this heading"></a></h3>
+<p>To run a the program we’ve just created, we need to switch to the debug mode by clicking on <em>Run Code</em> item in the application menu (clicking on <em>Edit Code</em> leads back to the block-based editor):</p>
+<img alt="_images/debugger-overview.png" class="align-center" src="_images/debugger-overview.png" />
+<ol class="arabic">
+<li><p><strong>The Control Panel</strong></p>
+<p>The Control Panel provides all the functionality needed to interact with the emulator. You can load programs into memory, run them, or reset the emulator to its initial state.</p>
+</li>
+<li><p><strong>Loaded Program</strong></p>
+<p>This section displays not only the loaded machine code but also its potential interpretations. Since a single binary word—such as <cite>0000000001011010</cite>—can be viewed in multiple ways, you can see both its decimal equivalent (e.g., <cite>90</cite>) and the corresponding <em>armlet</em> instruction (e.g., <cite>mov $1, 2</cite>).</p>
+</li>
+<li><p><strong>Register View</strong></p>
+<p>Here, you can see the current values of all registers, including the program counter (<cite>pc</cite>) and status flags.</p>
+</li>
+<li><p><strong>Memory Spy</strong></p>
+<p>Because the emulator’s memory is much larger than the portion shown in the <em>Loaded Program</em> section, the Memory Spy allows you to inspect any memory area by specifying:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A <strong>Start Address</strong> (in decimal or hexadecimal), and</p></li>
+<li><p>A <strong>Size</strong> (maximum of 30 words).</p></li>
+</ul>
+</div></blockquote>
+<p>It will then display the specified number of words starting from the provided address.</p>
+</li>
+<li><p><strong>Assembly Code View</strong></p>
+<p>Displays the assembly source code.</p>
+</li>
+</ol>
+</section>
+<section id="step-6-running-the-program">
+<h3>Step 6: Running the Program<a class="headerlink" href="#step-6-running-the-program" title="Link to this heading"></a></h3>
+<p>To run the program we’ve created in <strong>Step 1</strong> - <strong>Step 4</strong> we need to follow these steps:</p>
+<ol class="arabic">
+<li><p>Load the program to memory by clicking on the <a class="reference internal" href="_images/load-button.png"><img alt="load-button" class="align-middle" src="_images/load-button.png" style="height: 40px;" /></a> button in the <em>Control Panel</em></p></li>
+<li><p>Run the Programm by clicking on the <a class="reference internal" href="_images/run-button.png"><img alt="run-button" class="align-middle" src="_images/run-button.png" style="height: 40px;" /></a> button. This will start the automatic execution of the programm. While execution the instruction that is going to be executed next is highlighted in the <em>Loaded Program</em> section.</p>
+<p><strong>Optional:</strong> By clicking the <a class="reference internal" href="_images/button-single-step.png"><img alt="step-button" class="align-middle" src="_images/button-single-step.png" style="height: 40px;" /></a> button, only the next instruction is executed. This allows users to step through the program one instruction at a time.</p>
+</li>
+</ol>
+<p>Once the program terminates, the user receives a notification via an alert message.</p>
+<img alt="_images/terminated-program.png" src="_images/terminated-program.png" />
+</section>
+<section id="step-7-importing-exporting-your-solutions">
+<h3>Step 7: Importing/Exporting your Solutions<a class="headerlink" href="#step-7-importing-exporting-your-solutions" title="Link to this heading"></a></h3>
+<p>Finally, you can import or export assembly code by clicking on <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Export</span> <span class="pre">Assembly</span> <span class="pre">Code</span></code> or <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Import</span> <span class="pre">Assembly</span> <span class="pre">Code</span></code>.</p>
+<img alt="_images/import-export.png" class="align-center" src="_images/import-export.png" />
+</section>
+</section>
+<section id="labels-jump-instructions">
+<h2>Labels &amp; Jump instructions<a class="headerlink" href="#labels-jump-instructions" title="Link to this heading"></a></h2>
+<p>Whenever we want to redirect execution to a different location in the program, we use labels to specify the exact jump destination. Labels are defined using a label definition block (<a class="reference internal" href="_images/label-def.png"><img alt="label-def" class="align-middle" src="_images/label-def.png" style="height: 35px;" /></a>), which refers to the block immediately following it.</p>
+<p>To refer to a label (e.g. specifying the target of a <code class="docutils literal notranslate"><span class="pre">jmp</span></code> instruction) we use label primitives (<a class="reference internal" href="_images/label-prim.png"><img alt="label-prim" class="align-middle" src="_images/label-prim.png" style="height: 35px;" /></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During the transformation of the assembly program into machine code, these labels are replaced with the actual addresses they refer to.</p>
+</div>
+<p>The following example gives a short demonstration on how labels are used in Blocksembler. The program effectively omits the <code class="docutils literal notranslate"><span class="pre">mov</span></code> instruction and jumps directly to the <code class="docutils literal notranslate"><span class="pre">hlt</span></code> instruction.</p>
+<a class="reference internal image-reference" href="_images/label-example.png"><img alt="_images/label-example.png" class="align-center" src="_images/label-example.png" style="width: 500px;" />
+</a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Whenever a label primitive (<a class="reference internal" href="_images/label-prim.png"><img alt="label-prim" class="align-middle" src="_images/label-prim.png" style="height: 35px;" /></a>) is used in an <em>armlet</em> instruction, the corresponding label must be defined (<a class="reference internal" href="_images/label-def.png"><img alt="label-def" class="align-middle" src="_images/label-def.png" style="height: 35px;" /></a>) somewhere in the code. Otherwise, Blocksembler will not know which program location the label refers to.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To avoid ambiguity, each label (e.g., <a class="reference internal" href="_images/label-def.png"><img alt="label-def" class="align-middle" src="_images/label-def.png" style="height: 35px;" /></a>) can be defined only once within the code.</p>
+</div>
+</section>
+<section id="directives">
+<h2>Directives<a class="headerlink" href="#directives" title="Link to this heading"></a></h2>
+<p>The <em>armlet</em> assembly language also provides directives (e.g., <code class="docutils literal notranslate"><span class="pre">%data</span></code>) that can be used to define data that should be loaded into memory when the program starts. For example, the following program loads the values <code class="docutils literal notranslate"><span class="pre">574</span></code> and <code class="docutils literal notranslate"><span class="pre">937</span></code> into memory addresses <code class="docutils literal notranslate"><span class="pre">0x0000</span></code> and <code class="docutils literal notranslate"><span class="pre">0x0001</span></code>.</p>
+<a class="reference internal image-reference" href="_images/directive-example.png"><img alt="_images/directive-example.png" class="align-center" src="_images/directive-example.png" style="width: 200px;" />
+</a>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>It is also possible to use labels to refer to these data words:</p>
+<a class="reference internal image-reference" href="_images/label-directive-example.png"><img alt="_images/label-directive-example.png" class="align-center" src="_images/label-directive-example.png" style="width: 200px;" />
+</a>
+</div>
+</section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Link to this heading"></a></h2>
+<p>In Blocksembler there are two ways to comment your code:</p>
+<section id="use-in-line-comments">
+<h3>Use in-line comments<a class="headerlink" href="#use-in-line-comments" title="Link to this heading"></a></h3>
+<p>To create an inline comment, right-click on the relevant block and select <strong>“Add Comment”</strong>. The added comment can be toggled open or closed by clicking on the blue question mark.</p>
+<a class="reference internal image-reference" href="_images/in-line-comment.png"><img alt="_images/in-line-comment.png" class="align-center" src="_images/in-line-comment.png" style="width: 400px;" />
+</a>
+</section>
+<section id="use-the-multi-line-comment-block">
+<h3>Use the multi-line comment block<a class="headerlink" href="#use-the-multi-line-comment-block" title="Link to this heading"></a></h3>
+<p>If a larger comment is needed, multi-line comments can be placed between comment blocks, as shown in the following example:</p>
+<a class="reference internal image-reference" href="_images/multi-line-comment.png"><img alt="_images/multi-line-comment.png" class="align-center" src="_images/multi-line-comment.png" style="width: 200px;" />
+</a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Florian Wörister.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
